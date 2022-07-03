@@ -1,50 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title id="pageTitle"> </title>
-   <link rel="stylesheet" href="style.css">
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</head>
-<body>
-   <header id="header">
-      <input type="checkbox" id="menu" name="menu">
-      <img class="shadow" id="webLogo" src="" alt="Logo">
-      <nav>
-         <ul>
-            <li class="shadow">Home</li>
-            <li class="shadow">Service</li>
-            <li class="shadow">Follow</li>
-            <li class="shadow">Contact</li>
-         </ul>
-      </nav>
-      <div class="navMenu">
-         <label for="menu">
-            <div class="menu">
-               <span class="shadow"></span>
-               <span class="shadow"></span>
-               <span class="shadow"></span>
-            </div>
-         </label>
-      </div>
-   </header>
-   <div class="wrapper">
-      <div id="loading">
-         <div class="circle"></div>
-         <h3 class="loadingText">Loading .....</h3>
-      </div>
-    <center><h1 id="topChannel">Welcome to <span id="channelName"></span></h1></center>
-      <div id="player">
-         <p id="close">X</p>
-         <div id="box">
-          <iframe src="" id="iframeBox"></iframe>
-         </div>
-      </div>      
-   <div id="content">
-   </div>
-   </div>
-   <script src="javascript.js"></script>
-</body>
-</html>
+let watchButton = document.getElementsByClassName("watchVideo");
+let player = document.getElementById("player");
+let close = document.getElementById("close");
+let loading = document.getElementById("loading");
+let iframeBox = document.getElementById("iframeBox");
+let jsonCall = new XMLHttpRequest();
+jsonCall.open("GET", "https://cors-anywhere.herokuapp.com/http://theofficialvkr.ml/api/test.php/?vkr=https://www.youtube.com/channel/UCqeixFt3NlU-CnYTmre99_A",true);
+jsonCall.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+jsonCall.onreadystatechange = function(){
+if(jsonCall.status ==200){
+    loading.style.display = "none";
+let content = document.getElementById("content");
+const obj = JSON.parse(jsonCall.responseText);
+let channelName = document.getElementById("channelName");
+let topChannel = document.getElementById("topChannel");
+let channel = obj.uploader;
+channelName.innerText = channel;
+let pageTitle = document.getElementById("pageTitle");
+let webLogo = document.getElementById("webLogo");
+pageTitle.innerText += channel+" - YouTube";
+let channelThumb = obj.thumbnails[4].url;
+let channelLogo = obj.thumbnails[17].url;
+webLogo.setAttribute("src",channelLogo);
+function secondsToTime(e){
+    var h = Math.floor(e / 3600).toString().padStart(2,'0'),
+        m = Math.floor(e % 3600 / 60).toString().padStart(2,'0'),
+        s = Math.floor(e % 60).toString().padStart(2,'0');
+    
+    return h + ':' + m + ':' + s;
+    //return `${h}:${m}:${s}`;
+}
+document.getElementById("header").style.background = 'url('+channelThumb+')  top center/cover no-repeat';
+for(let j=0; j< obj.entries.length; j++){
+content.innerHTML += "<div class='card'><img src='https://i1.ytimg.com/vi/"+obj.entries[j].id+"/hqdefault.jpg' alt='Thumb' srcset=''><div class='detail'><h2 class='title'> "+obj.entries[j].title+"  </h2> <p> "+obj.entries[j].view_count+"</p><p> "+secondsToTime(obj.entries[j].duration)+"</p>  <a href='##' alt='https://www.youtube.com/embed/"+obj.entries[j].id+"?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=1&start=0&end=0' autoplay allowfullscreen allow='autoplay' class='watchVideo'> Watch</a></div></div>";
+}
+close.addEventListener("click",()=>{
+    player.style.display = "none";
+}) 
+for (let i = 0; i < watchButton.length; i++) {
+watchButton[i].addEventListener("click",(en)=>{
+    player.style.display = "inherit";
+link = en.target.getAttribute('alt');
+console.log(link);
+iframeBox.setAttribute("src",link);
+
+})
+}
+}else{
+    alert("Error");
+}
+}
+jsonCall.send();
+
+
