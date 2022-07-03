@@ -5,7 +5,7 @@ let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsanywhere.herokuapp.com/";
-const channel = cors+"https://theofficialvkr.000webhostapp.com/api/test.php/?vkr="+channelUrl;
+const channel = cors+"http://theofficialvkr.ml/api/test.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
 jsonCall.open("GET", channel,true);
 jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
