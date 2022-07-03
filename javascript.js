@@ -1,10 +1,13 @@
+const channelUrl = "https://www.youtube.com/channel/UCqeixFt3NlU-CnYTmre99_A";
 let watchButton = document.getElementsByClassName("watchVideo");
 let player = document.getElementById("player");
 let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
+const cors = "https://cors-anywhere.herokuapp.com/";
+const channel = cors+"http://theofficialvkr.ml/api/test.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
-jsonCall.open("GET", "https://cors-anywhere.herokuapp.com/http://theofficialvkr.ml/api/test.php/?vkr=https://www.youtube.com/channel/UCqeixFt3NlU-CnYTmre99_A",true);
+jsonCall.open("GET", channel,true);
 jsonCall.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 jsonCall.onreadystatechange = function(){
