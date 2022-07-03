@@ -3,7 +3,9 @@ let player = document.getElementById("player");
 let close = document.getElementById("close");
 let iframeBox = document.getElementById("iframeBox");
 let jsonCall = new XMLHttpRequest();
-jsonCall.open("GET", "https://cors-anywhere.herokuapp.com/https://theofficialvkr.000webhostapp.com/api/test.php/?vkr=https://www.youtube.com/channel/UCqeixFt3NlU-CnYTmre99_A",true)
+jsonCall.open("GET", "http://theofficialvkr.ml/api/test.php/?vkr=https://www.youtube.com/channel/UCqeixFt3NlU-CnYTmre99_A",true);
+
+jsonCall.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 jsonCall.onreadystatechange = function(){
 if(jsonCall.status ==200){
 let content = document.getElementById("content");
