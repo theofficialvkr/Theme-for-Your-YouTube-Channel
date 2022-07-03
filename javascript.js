@@ -8,7 +8,6 @@ const cors = "https://cors-anywhere.herokuapp.com/";
 const channel = cors+"https://theofficialvkr.000webhostapp.com/api/test.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
 jsonCall.open("GET", channel,true);
-jsonCall.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 jsonCall.onreadystatechange = function(){
 if(jsonCall.status ==200){
