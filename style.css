@@ -223,9 +223,9 @@
       color: white;
       text-align: center;
       position: fixed;
-      top: 70%;
+      top: 50%;
       left: 50%;
-      transform: translate(-70% -50%);
+      transform: translate(-50%, -50%);
    }
    @keyframes rotating {
       from{
