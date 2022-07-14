@@ -127,28 +127,30 @@
    }
    #content{
     width: 100%;
-    position: relative;
-    display: grid;
+    display: flex;
     margin-top: 40px;
     gap:10px 10px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    place-items: center;
+      position: relative;
+      height: 100vh;
+    flex-wrap:wrap;
+      justify-content: center;
    }
    .card{
-    width: 350px;
+    min-width: 350px;
     height: 400px;
     background: white;
     border-radius: 30px;
     margin: 27px auto;
-    display: flex;
-    justify-content: center;
+/*     display: flex; */
+/*     justify-content: center; */
     position: relative;
     box-shadow: rgb(0, 0, 0, 0.4) 7px 7px 5px,
                       rgb(255, 255, 255, 0.4) 15px 15px 5px;
-   }
+      flex: 1;
+}
    .card img{
     position: absolute;
-    width: 90%;
+    width: 100%;
     height: 200px;
     top: -40px;
     border-top-left-radius: 50px;
