@@ -4,7 +4,7 @@ let player = document.getElementById("player");
 let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
-const cors = "https://corsanywhere.herokuapp.com/";
+const cors = "https://cors-anywhere.herokuapp.com/";
 const channel = "https://theofficialvkr.000webhostapp.com/api/ch.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
 jsonCall.open("GET",cors+"https://theofficialvkr.000webhostapp.com/api/ch.php?vkr="+channelUrl,true);
