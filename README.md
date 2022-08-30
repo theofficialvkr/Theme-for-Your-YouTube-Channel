@@ -7,4 +7,4 @@ Add Your YouTube Channel URL in javascript.js file in line 1
 thats it 
 Now publish this code an dits start working
 
-# Demo https://theofficialvkr.github.io/kewalcricket/
+# Demo http://kewalcricket.ml/
