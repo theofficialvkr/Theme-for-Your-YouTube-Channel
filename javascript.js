@@ -7,7 +7,7 @@ let iframeBox = document.getElementById("iframeBox");
 const cors = "https://cors-anywhere.herokuapp.com/";
 const channel = "https://theofficialvkr.000webhostapp.com/api/ch.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
-jsonCall.open("GET",cors+"https://theofficialvkr.000webhostapp.com/api/ch.php?vkr="+channelUrl,true);
+jsonCall.open("GET",cors+channel);
 // jsonCall.open("GET","https://theofficialvkr.000webhostapp.com/api/ch.php?vkr="+channelUrl);
 jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 jsonCall.onreadystatechange = function(){
