@@ -7,7 +7,7 @@ let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsytvkr.herokuapp.com/";
 const channel = "https://gmvapp.iceiy.com/api/ch.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
-jsonCall.open("GET",channel);
+jsonCall.open("GET",cors+channel);
 // jsonCall.open("GET","https://gmvapp.iceiy.com/api/ch.php?vkr="+channelUrl);
 jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 jsonCall.onreadystatechange = function(){
