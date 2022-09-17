@@ -5,10 +5,10 @@ let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsytvkr.herokuapp.com/";
-const channel = "http://gmvapp.gq/api/ch.php/?vkr="+channelUrl;
+const channel = "https://gmvapp.iceiy.com/api/ch.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
 jsonCall.open("GET",channel);
-// jsonCall.open("GET","https://theofficialvkr.000webhostapp.com/api/ch.php?vkr="+channelUrl);
+// jsonCall.open("GET","https://gmvapp.iceiy.com/api/ch.php?vkr="+channelUrl);
 jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 jsonCall.onreadystatechange = function(){
 if(jsonCall.status ==200){
