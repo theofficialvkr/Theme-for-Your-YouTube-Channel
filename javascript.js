@@ -7,8 +7,8 @@ let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsytvkr.herokuapp.com/";
 const channel = "https://gmvapp.iceiy.com/api/ch.php/?vkr="+channelUrl;
 let jsonCall = new XMLHttpRequest();
-jsonCall.open("GET",cors+channel);
-// jsonCall.open("GET","https://gmvapp.iceiy.com/api/ch.php?vkr="+channelUrl);
+// jsonCall.open("GET",cors+channel);
+jsonCall.open("GET","https://gmvapp.iceiy.com/api/ch.php?vkr="+channelUrl,true);
 jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 jsonCall.onreadystatechange = function(){
 if(jsonCall.status ==200){
