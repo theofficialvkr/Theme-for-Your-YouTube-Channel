@@ -6,15 +6,17 @@ let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsytvkr.herokuapp.com/";
 const channel = "http://theofficialvkr.ml/api/channel.php/?vkr="+channelUrl;
-let jsonCall = new XMLHttpRequest();
-// jsonCall.open("GET",cors+channel);
-jsonCall.open("GET","channel, true);
-jsonCall.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-jsonCall.onreadystatechange = function(){
-if(jsonCall.status ==200){
-    loading.style.display = "none";
+$.ajax({
+    url:channel,
+    type:"GET",
+    async:false,
+    crossDomain:true,
+    dataType: 'json',
+  success: function(data){   
+         const obj = data;
+         loading.style = "display:none";
+         console.log(obj.title);
 let content = document.getElementById("content");
-const obj = JSON.parse(jsonCall.responseText);
 let channelName = document.getElementById("channelName");
 let topChannel = document.getElementById("topChannel");
 let channel = obj.uploader;
@@ -49,10 +51,5 @@ iframeBox.setAttribute("src",link);
 
 })
 }
-}else{
-    alert("Error");
 }
-}
-jsonCall.send();
-
-
+});
