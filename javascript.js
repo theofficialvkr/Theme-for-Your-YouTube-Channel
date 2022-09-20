@@ -15,7 +15,7 @@ $.ajax({
   success: function(data){   
          const obj = data;
          loading.style = "display:none";
-         console.log(obj.title);
+    
 let content = document.getElementById("content");
 let channelName = document.getElementById("channelName");
 let topChannel = document.getElementById("topChannel");
@@ -52,4 +52,9 @@ iframeBox.setAttribute("src",link);
 })
 }
 }
+
+complete: function(data, textStatus) {
+        alert(data.status);
+    }
+
 });
