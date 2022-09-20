@@ -6,14 +6,14 @@ let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsytvkr.herokuapp.com/";
 const channel = "http://theofficialvkr.ml/api/channel.php/?vkr="+channelUrl;
-$.ajax(url:channel,
+$.ajax({url:channel,
 type:"GET",
     async:false,
     crossDomain:true,
     dataType: 'json',
  function(obj) {
                 console.log(obj);
-            }).done(function() {
+            }}).done(function() {
                
 
 loading.style = "display:none";
@@ -54,13 +54,13 @@ iframeBox.setAttribute("src",link);
 })
 }
 
-            }).fail(function(obj, textStatus, xhr) {
+            }}).fail(function(obj, textStatus, xhr) {
                  //This shows status code eg. 403
                  alert("error", data.status);
 loading.style = "display:none";
                  //This shows status message eg. Forbidden
                  console.log("STATUS: "+xhr);
-            }).always(function() {
+            }}).always(function() {
                  //TO-DO after fail/done request.
                  alert("ended");
 loading.style = "display:none";
