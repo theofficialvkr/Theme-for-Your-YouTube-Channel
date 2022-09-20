@@ -6,7 +6,7 @@ let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsytvkr.herokuapp.com/";
 const channel = "http://theofficialvkr.ml/api/channel.php/?vkr="+channelUrl;
-$.get("example.url.com", function(obj) {
+$.get(channel, function(obj) {
                 console.log(obj);
             }).done(function() {
                
