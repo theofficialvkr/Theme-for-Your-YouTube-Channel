@@ -5,7 +5,7 @@ let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
 const cors = "https://corsytvkr.herokuapp.com/";
-const channel = "https://vijayapi.000webhostapp.com/api/channel.php/?vkr="+channelUrl;
+const channel = "https://vkrapi.000webhostapp.com/api/channel.php/?vkr="+channelUrl;
 $.ajax({
     url:channel,
     type:"GET",
