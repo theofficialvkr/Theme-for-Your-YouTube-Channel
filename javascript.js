@@ -4,8 +4,8 @@ let player = document.getElementById("player");
 let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
-const cors = "https://corsytvkr.herokuapp.com/";
-const channel = "https://vkrfork.000webhostapp.com/server/api/channel.php/?vkr="+channelUrl;
+const cors = "https://corsvkr.up.railway.app/";
+const channel = cors+"https://vkrfork.000webhostapp.com/server/api/channel.php/?vkr="+channelUrl;
 $.ajax({
     url:channel,
     type:"GET",
