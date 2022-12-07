@@ -1,4 +1,4 @@
-const channelUrl = "https://www.youtube.com/channel/UCL1K2YdYjyYIUHITdSsN9sg";
+    const channelUrl = "https://www.youtube.com/channel/UCL1K2YdYjyYIUHITdSsN9sg";
 let watchButton = document.getElementsByClassName("watchVideo");
 let player = document.getElementById("player");
 let close = document.getElementById("close");
@@ -12,7 +12,7 @@ $.ajax({
     async:true,
     crossDomain:true,
     dataType: 'json',
-    jsonp:false,
+    jsonp:true,
     cache:true,
     success: function(data){   
          const obj = data;
@@ -35,8 +35,8 @@ channelName.innerText = channel;
 let pageTitle = document.getElementById("pageTitle");
 let webLogo = document.getElementById("webLogo");
 pageTitle.innerText += channel+" - YouTube";
-let channelThumb = obj[0].thumb;
-let channelLogo = obj[0].banner;
+let channelLogo = obj[0].thumb;
+let channelThumb = obj[0].banner;
 webLogo.setAttribute("src",channelLogo);
 function secondsToTime(e){
     var h = Math.floor(e / 3600).toString().padStart(2,'0'),
@@ -46,9 +46,9 @@ function secondsToTime(e){
     return h + ':' + m + ':' + s;
     //return `${h}:${m}:${s}`;
 }
-document.getElementById("header").style.background = 'url('+channelThumb+')  top center/cover no-repeat';
-for(let j=0; j< obj.length; j++){
-content.innerHTML += "<div class='card'><img src='https://i1.ytimg.com/vi/"+obj[j].id+"/hqdefault.jpg' alt='Thumb' srcset=''><div class='detail'><h2 class='title'> "+obj[j].fulltitle+"  </h2> <p> "+obj[j].views+"</p><p> "+obj[j].publish)+"</p>  <a href='##' alt='https://www.youtube.com/embed/"+obj[j].id+"?autoplay=1&muted=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=1&start=0&end=0' autoplay allowfullscreen allow='autoplay' class='watchVideo'> Watch</a></div></div>";
+document.getElementById("header").style.background = 'url('+channelThumb+')  center center/cover no-repeat';
+for(let j=0; j< obj.length - 1; j++){
+content.innerHTML += "<div class='card'><img src='https://i1.ytimg.com/vi/"+obj[j].id+"/hqdefault.jpg' alt='Thumb' srcset=''><div class='detail'><h2 class='title'> "+obj[j].fulltitle+"  </h2> <p> "+obj[j].views+"</p><p> "+obj[j].publish+"</p>  <a href='##' alt='https://www.youtube.com/embed/"+obj[j].id+"?autoplay=1&muted=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=1&start=0&end=0' autoplay allowfullscreen allow='autoplay' class='watchVideo'> Watch</a></div></div>";
 }
 close.addEventListener("click",()=>{
     player.style.display = "none";
