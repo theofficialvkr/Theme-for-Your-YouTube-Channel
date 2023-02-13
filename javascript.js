@@ -5,7 +5,7 @@ let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
 const cors = "https://vkrcors.vercel.app/?url=";
-const channel = "https://vkrfork.vercel.app/server/api/channel.php/?vkr="+channelUrl;
+const channel = "https://vkrfork.vercel.app/server/api/channel.php?vkr="+channelUrl;
 $.ajax({
     url:channel,
     type:"GET",
