@@ -1,4 +1,4 @@
-const channelUrl = "https://www.youtube.com/channel/UCL1K2YdYjyYIUHITdSsN9sg";
+const channelUrl = "UCL1K2YdYjyYIUHITdSsN9sg";
 let watchButton = document.getElementsByClassName("watchVideo");
 let player = document.getElementById("player");
 let close = document.getElementById("close");
