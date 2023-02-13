@@ -4,7 +4,7 @@ let player = document.getElementById("player");
 let close = document.getElementById("close");
 let loading = document.getElementById("loading");
 let iframeBox = document.getElementById("iframeBox");
-const cors = "https://corsvkr.up.railway.app/";
+const cors = "https://vkrcors.vercel.app/?url=";
 const channel = cors+"https://vijaykumar.gq/server/api/channel.php/?vkr="+channelUrl;
 $.ajax({
     url:channel,
